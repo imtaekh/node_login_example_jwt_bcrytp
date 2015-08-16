@@ -32,6 +32,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
 
+//routes
+var routes=require("./routes/index");
+var users=require("./routes/users");
+app.use('/', routes);
+app.use('/users', users);
+
 //server
 app.listen(3000,function () {
   console.log("http://127.0.0.1:"+port+"/");
